@@ -1,0 +1,19 @@
+package com.study.androidstudydemo;
+
+import android.os.Bundle;
+
+import androidx.annotation.Nullable;
+import androidx.appcompat.app.AppCompatActivity;
+
+/**
+ * @author wzh
+ * @date 2022/5/4
+ */
+public class PracticeActivity extends AppCompatActivity {
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+
+        setContentView(R.layout.activity_practice);
+    }
+}
