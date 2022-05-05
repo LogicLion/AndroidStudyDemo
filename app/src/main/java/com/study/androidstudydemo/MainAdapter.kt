@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.study.androidstudydemo.bean.Target
 
 /**
  * @author wzh
@@ -24,17 +25,22 @@ class MainAdapter(private val targetList: List<Target>) :
 
     override fun onBindViewHolder(holder: MainViewHolder, position: Int) {
         val context = holder.itemView.context
-        holder.tvTitle.text = targetList[position].title
+
+        val target = targetList.get(position)
+        holder.tvTitle.text = target.title
 
         holder.itemView.setOnClickListener {
-            context.startActivity(Intent(context,PracticeActivity::class.java))
+
+            val intent = Intent(context, PracticeActivity::class.java)
+            intent.putExtra("target",target)
+            context.startActivity(intent)
         }
     }
 
     override fun getItemCount() = targetList.size
 
 
-    class MainViewHolder(val itemView: View) : RecyclerView.ViewHolder(itemView) {
+    class MainViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvTitle: TextView = itemView.findViewById(R.id.tv_title)
 
     }
